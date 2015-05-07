@@ -20,18 +20,18 @@ app.controller("MainController",function($scope, $resource, PostResource, UserRe
 
 });
 
-app.controller("PostController",function($scope, $resource, $routeParams, PostResource){
+app.controller("PostController",function($scope, $routeParams, PostResource){
 
     $scope.post= PostResource.get({id: $routeParams.id});
 
 });
 
-app.controller("NewPostController",function($scope, $resource, PostResource){
+app.controller("NewPostController",function($scope, PostResource){
 
     $scope.post = {};
     $scope.savePost = function(){
         //Post.save({data: $scope.post});
-        Post.save({data: $scope.post}, function(data){
+        PostResource.save({data: $scope.post}, function(data){
             console.log(data);
         });
 
