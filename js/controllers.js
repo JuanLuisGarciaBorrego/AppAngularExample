@@ -9,3 +9,11 @@ app.controller("MainController",function($scope, $resource){
     //query() -> GET/posts = array de posts
 
 });
+
+app.controller("PostController",function($scope, $resource, $routeParams){
+
+    Post = $resource("http://jsonplaceholder.typicode.com/posts/:id",{id: "@id"});
+
+    $scope.post= Post.get({id: $routeParams.id});
+
+});

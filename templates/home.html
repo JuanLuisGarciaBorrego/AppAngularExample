@@ -1,8 +1,8 @@
 <div class="col-lg-6">
     <h2>Posts</h2>
     <div ng-repeat="post in posts">
-        <h4>{{post.title}}</h4>
-        <p>{{post.body}}</p>
+        <h4>{{post.title | uppercase}}</h4>
+        <p>{{post.body}}. <a ng-href="#/post/{{post.id}}" class="btn btn-xs btn-info">Leer más</a> </p>
     </div>
 
 </div>

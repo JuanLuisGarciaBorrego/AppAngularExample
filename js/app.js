@@ -6,4 +6,8 @@ app.config(function($routeProvider){
            controller: "MainController",
            templateUrl: "templates/home.html"
        })
+       .when("/post/:id",{
+           controller: "PostController",
+           templateUrl: "templates/post.html"
+       })
 });
