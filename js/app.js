@@ -14,4 +14,8 @@ app.config(function($routeProvider){
            controller: "NewPostController",
            templateUrl: "templates/newPost.html"
        })
+       .when("/post-edit/:id",{
+           controller: "PostController",
+           templateUrl: "templates/updatePost.html"
+       })
 });

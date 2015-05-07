@@ -16,23 +16,34 @@ app.controller("MainController",function($scope, $resource, PostResource, UserRe
         $scope.posts = $scope.posts.filter(function(element){
             return element.id !== post.id;
         });
-    }
-
+    };
 });
 
-app.controller("PostController",function($scope, $routeParams, PostResource){
+app.controller("PostController",function($scope, $routeParams, PostResource, $location){
 
     $scope.post= PostResource.get({id: $routeParams.id});
 
+    $scope.savePost = function(){
+        PostResource.update(
+            {id: $scope.post.id},
+            {data: $scope.post},
+            function(data){
+                console.log(data);
+                $location.path('/');
+            }
+        );
+    };
+
 });
 
-app.controller("NewPostController",function($scope, PostResource){
+app.controller("NewPostController",function($scope, PostResource, $location){
 
     $scope.post = {};
     $scope.savePost = function(){
         //Post.save({data: $scope.post});
         PostResource.save({data: $scope.post}, function(data){
             console.log(data);
+            $location.path('/');
         });
 
     }
