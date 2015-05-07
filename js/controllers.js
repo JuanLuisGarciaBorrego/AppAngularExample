@@ -1,15 +1,14 @@
-app.controller("MainController",function($scope, $resource){
+app.controller("MainController",function($scope, $resource, PostResource, UserResource){
 
-    Post = $resource("http://jsonplaceholder.typicode.com/posts/:id",{id: "@id"});
     User = $resource("http://jsonplaceholder.typicode.com/users/:id",{id: "@id"});
 
-    $scope.posts= Post.query();
-    $scope.users= User.query();
+    $scope.posts= PostResource.query();
+    $scope.users= UserResource.query();
 
     //query() -> GET/posts = array de posts
     $scope.removePost = function(post){
         //Post.delete({id:post.id}); Nuestra API no nos permite eliminar.
-        Post.delete({id:post.id}, function(data){
+        PostResource.delete({id:post.id}, function(data){
             console.log(data);
         });
 
@@ -21,24 +20,21 @@ app.controller("MainController",function($scope, $resource){
 
 });
 
-app.controller("PostController",function($scope, $resource, $routeParams){
+app.controller("PostController",function($scope, $resource, $routeParams, PostResource){
 
-    Post = $resource("http://jsonplaceholder.typicode.com/posts/:id",{id: "@id"});
-
-    $scope.post= Post.get({id: $routeParams.id});
+    $scope.post= PostResource.get({id: $routeParams.id});
 
 });
 
-app.controller("NewPostController",function($scope, $resource){
+app.controller("NewPostController",function($scope, $resource, PostResource){
 
-    Post = $resource("http://jsonplaceholder.typicode.com/posts/:id",{id: "@id"});
     $scope.post = {};
     $scope.savePost = function(){
         //Post.save({data: $scope.post});
         Post.save({data: $scope.post}, function(data){
             console.log(data);
         });
-        
+
     }
 
 });
