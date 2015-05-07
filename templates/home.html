@@ -2,7 +2,11 @@
     <h2>Posts</h2>
     <div ng-repeat="post in posts">
         <h4>{{post.title | uppercase}}</h4>
-        <p>{{post.body}}. <a ng-href="#/post/{{post.id}}" class="btn btn-xs btn-info">Leer más</a> </p>
+        <p>{{post.body}}
+            <br>
+            <a ng-href="#/post/{{post.id}}" class="btn btn-xs btn-info">Leer más</a>
+            <a ng-click="removePost(post)" class="btn btn-xs btn-danger">Eliminar</a>
+        </p>
     </div>
 
 </div>
