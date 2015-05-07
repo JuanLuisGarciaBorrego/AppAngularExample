@@ -1,21 +1,17 @@
 <div class="col-lg-6">
-    <h4>Hola Home</h4>
-    <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+    <h2>Posts</h2>
+    <div ng-repeat="post in posts">
+        <h4>{{post.title}}</h4>
+        <p>{{post.body}}</p>
+    </div>
 
-    <h4>Subheading</h4>
-    <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-    <h4>Subheading</h4>
-    <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
 </div>
 
 <div class="col-lg-6">
-    <h4>Hola Home</h4>
-    <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+    <h2>Users</h2>
+    <div ng-repeat="user in users">
+        <h4>{{user.name}}</h4>
+        <div>{{user.email}} - {{user.address.city}}</div>
+    </div>
 
-    <h4>Subheading</h4>
-    <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-    <h4>Subheading</h4>
-    <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
 </div>
