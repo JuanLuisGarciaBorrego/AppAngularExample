@@ -10,4 +10,8 @@ app.config(function($routeProvider){
            controller: "PostController",
            templateUrl: "templates/post.html"
        })
+       .when("/post-new",{
+           controller: "NewPostController",
+           templateUrl: "templates/newPost.html"
+       })
 });
